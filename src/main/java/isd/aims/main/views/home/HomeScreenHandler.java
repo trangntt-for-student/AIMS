@@ -1,15 +1,7 @@
 package isd.aims.main.views.home;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.ResourceBundle;
-import java.util.logging.Logger;
-
+import isd.aims.main.App;
+import isd.aims.main.HelloApplication;
 import isd.aims.main.common.exception.ViewCartException;
 import isd.aims.main.controller.HomeController;
 import isd.aims.main.controller.ViewCartController;
@@ -32,8 +24,17 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.logging.Logger;
 
-public class HomeScreenHandler extends BaseScreenHandler implements Initializable{
+public class HomeScreenHandler extends BaseScreenHandler implements Initializable {
 
     public static Logger LOGGER = Utils.getLogger(HomeScreenHandler.class.getName());
 
@@ -63,7 +64,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
     private List homeItems;
 
-    public HomeScreenHandler(Stage stage, String screenPath) throws IOException{
+    public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
         super(stage, screenPath);
     }
 
@@ -86,9 +87,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         setBController(new HomeController());
         try{
             List medium = getBController().getAllMedia();
-            this.homeItems = new ArrayList<>();
+            this.homeItems = new ArrayList();
             for (Object object : medium) {
-                Media media = (Media)object;
+                Media media = (Media) object;
                 MediaHandler m1 = new MediaHandler(Configs.HOME_MEDIA_PATH, media, this);
                 this.homeItems.add(m1);
             }
@@ -96,12 +97,12 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
             LOGGER.info("Errors occured: " + e.getMessage());
             e.printStackTrace();
         }
-        
-            
+
+
         aimsImage.setOnMouseClicked(e -> {
             addMediaHome(this.homeItems);
         });
-        
+
         cartImage.setOnMouseClicked(e -> {
             CartScreenHandler cartScreen;
             try {
@@ -120,7 +121,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         addMenuItem(2, "CD", splitMenuBtnSearch);
     }
 
-    public void setImage(){
+    public void setImage() {
         // fix image path caused by fxml
         File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
         Image img1 = new Image(file1.toURI().toString());
@@ -179,7 +180,4 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         });
         menuButton.getItems().add(position, menuItem);
     }
-
-    
-    
 }

@@ -9,6 +9,7 @@ import isd.aims.main.common.exception.MediaNotAvailableException;
 import isd.aims.main.entity.cart.Cart;
 import isd.aims.main.entity.cart.CartMedia;
 import isd.aims.main.entity.media.Media;
+import isd.aims.main.utils.Configs;
 import isd.aims.main.utils.Utils;
 import isd.aims.main.views.FXMLScreenHandler;
 import isd.aims.main.views.popup.PopupScreen;
@@ -75,7 +76,7 @@ public class MediaHandler extends FXMLScreenHandler {
                 } catch (Exception e) {
                     LOGGER.severe("Cannot add media to cart: ");
                 }
-                
+
             } catch (Exception exp) {
                 LOGGER.severe("Cannot add media to cart: ");
                 exp.printStackTrace();
@@ -90,7 +91,7 @@ public class MediaHandler extends FXMLScreenHandler {
 
     private void setMediaInfo() throws SQLException {
         // set the cover image of media
-        File file = new File(media.getImageURL());
+        File file = new File(Configs.RESOURCES_PATH + "/" + media.getImageURL());
         Image image = new Image(file.toURI().toString());
         mediaImage.setFitHeight(160);
         mediaImage.setFitWidth(152);
@@ -105,5 +106,5 @@ public class MediaHandler extends FXMLScreenHandler {
 
         setImage(mediaImage, media.getImageURL());
     }
-    
+
 }

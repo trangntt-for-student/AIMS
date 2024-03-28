@@ -19,7 +19,7 @@
       <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="14.0" layoutY="28.0" pickOnBounds="true"
          preserveRatio="true">
          <image>
-            <Image url="/assets/images/Logo.png" />
+            <Image url="/isd/aims/main/assetsms/main/assets/images/Logo.png" />
          </image>
       </ImageView>
       <Label fx:id="resultLabel" layoutX="365.0" layoutY="248.0" text="PAYMENT RESULT!"

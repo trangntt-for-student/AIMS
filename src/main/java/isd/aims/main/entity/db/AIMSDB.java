@@ -1,5 +1,6 @@
 package isd.aims.main.entity.db;
 
+import java.net.URL;
 import java.sql.DriverManager;
 import java.util.logging.Logger;
 import java.sql.Connection;
@@ -12,15 +13,17 @@ public class AIMSDB {
 
     public static Connection getConnection() {
         if (connect != null) return connect;
+
         try {
 			Class.forName("org.sqlite.JDBC");
-            String url = "jdbc:sqlite:assets/db/aims.db";
-            connect = DriverManager.getConnection(url);
+            String connectionString = "jdbc:sqlite:src/main/resources/isd/aims/main/assets/db/aims.db";
+            connect = DriverManager.getConnection(connectionString);
             LOGGER.info("Connect database successfully");
+            return connect;
         } catch (Exception e) {
             LOGGER.info(e.getMessage());
+            return connect;
         }
-        return connect;
     }
     
 
