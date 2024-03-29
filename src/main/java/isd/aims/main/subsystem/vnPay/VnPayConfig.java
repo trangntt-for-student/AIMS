@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 /**
  * @author CTT VNPAY
  */
-public class Config {
+public class VnPayConfig {
 
     private static final Pattern pattern = Pattern.compile("\\{\"IP\":\"(?<ip>.*)\"\\}");
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
