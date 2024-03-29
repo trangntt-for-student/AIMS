@@ -26,7 +26,7 @@
       <ImageView fitHeight="73.0" fitWidth="73.0" layoutX="-6.0" layoutY="8.0" pickOnBounds="true"
          preserveRatio="true">
          <image>
-            <Image url="/isd/aims/main/assetsms/main/assets/images/Logo.png" />
+            <Image url="@../fxml/images/Logo.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="601.0" layoutY="663.0" />

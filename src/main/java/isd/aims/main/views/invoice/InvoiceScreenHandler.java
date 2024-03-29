@@ -61,6 +61,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 		setInvoiceInfo();
 	}
 
+	@SuppressWarnings("unchecked")
 	private void setInvoiceInfo(){
 		HashMap<String, String> deliveryInfo = invoice.getOrder().getDeliveryInfo();
 		name.setText(deliveryInfo.get("name"));
@@ -81,7 +82,7 @@ public class InvoiceScreenHandler extends BaseScreenHandler {
 				System.err.println("errors: " + e.getMessage());
 				throw new ProcessInvoiceException(e.getMessage());
 			}
-			
+
 		});
 
 	}

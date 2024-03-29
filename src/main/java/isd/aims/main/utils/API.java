@@ -22,6 +22,7 @@ public class API {
 	public static DateFormat DATE_FORMATER = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	private static Logger LOGGER = Utils.getLogger(Utils.class.getName());
 
+	@SuppressWarnings("deprecation")
 	public static String get(String url, String token) throws Exception {
 		LOGGER.info("Request URL: " + url + "\n");
 		URL line_api_url = new URL(url);
@@ -44,9 +45,8 @@ public class API {
 
 	int var;
 
-	public static String post(String url, String data
-//			, String token
-	) throws IOException {
+	@SuppressWarnings("deprecation")
+	public static String post(String url, String data) throws IOException {
 		allowMethods("PATCH");
 		URL line_api_url = new URL(url);
         LOGGER.info("Request Info:\nRequest URL: " + url + "\n" + "Payload Data: " + data + "\n");

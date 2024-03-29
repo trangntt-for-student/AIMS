@@ -1,7 +1,5 @@
 package isd.aims.main.views.home;
 
-import isd.aims.main.App;
-import isd.aims.main.HelloApplication;
 import isd.aims.main.common.exception.ViewCartException;
 import isd.aims.main.controller.HomeController;
 import isd.aims.main.controller.ViewCartController;
@@ -47,14 +45,14 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     @FXML
     private ImageView cartImage;
 
-    @FXML
-    private VBox vboxMedia1;
+    // @FXML
+    // private VBox vboxMedia1;
 
-    @FXML
-    private VBox vboxMedia2;
+    // @FXML
+    // private VBox vboxMedia2;
 
-    @FXML
-    private VBox vboxMedia3;
+    // @FXML
+    // private VBox vboxMedia3;
 
     @FXML
     private HBox hboxMedia;
@@ -62,6 +60,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
     @FXML
     private SplitMenuButton splitMenuBtnSearch;
 
+    @SuppressWarnings("rawtypes")
     private List homeItems;
 
     public HomeScreenHandler(Stage stage, String screenPath) throws IOException {
@@ -82,6 +81,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         super.show();
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         setBController(new HomeController());
@@ -104,10 +104,9 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         });
 
         cartImage.setOnMouseClicked(e -> {
-            CartScreenHandler cartScreen;
             try {
                 LOGGER.info("User clicked to view cart");
-                cartScreen = new CartScreenHandler(this.stage, Configs.CART_SCREEN_PATH);
+                CartScreenHandler cartScreen = new CartScreenHandler(this.stage, Configs.CART_SCREEN_PATH);
                 cartScreen.setHomeScreenHandler(this);
                 cartScreen.setBController(new ViewCartController());
                 cartScreen.requestToViewCart(this);
@@ -115,6 +114,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
                 throw new ViewCartException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
             }
         });
+
         addMediaHome(this.homeItems);
         addMenuItem(0, "Book", splitMenuBtnSearch);
         addMenuItem(1, "DVD", splitMenuBtnSearch);
@@ -132,6 +132,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         cartImage.setImage(img2);
     }
 
+    @SuppressWarnings("rawtypes")
     public void addMediaHome(List items){
         ArrayList mediaItems = (ArrayList)((ArrayList) items).clone();
         hboxMedia.getChildren().forEach(node -> {
@@ -152,6 +153,7 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
         }
     }
 
+    @SuppressWarnings({ "rawtypes", "unchecked" })
     private void addMenuItem(int position, String text, MenuButton menuButton){
         MenuItem menuItem = new MenuItem();
         Label label = new Label();

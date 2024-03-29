@@ -30,6 +30,7 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		return this.prev;
 	}
 
+	@SuppressWarnings("exports")
 	public BaseScreenHandler(Stage stage, String screenPath) throws IOException {
 		super(screenPath);
 		this.stage = stage;
@@ -47,18 +48,22 @@ public class BaseScreenHandler extends FXMLScreenHandler {
 		this.stage.setTitle(string);
 	}
 
+	@SuppressWarnings("exports")
 	public void setBController(BaseController bController){
 		this.bController = bController;
 	}
 
+	@SuppressWarnings("exports")
 	public BaseController getBController(){
 		return this.bController;
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void forward(Hashtable messages) {
 		this.messages = messages;
 	}
 
+	@SuppressWarnings("exports")
 	public void setHomeScreenHandler(HomeScreenHandler HomeScreenHandler) {
 		this.homeScreenHandler = HomeScreenHandler;
 	}

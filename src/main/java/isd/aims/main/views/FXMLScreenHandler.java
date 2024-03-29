@@ -21,14 +21,17 @@ public class FXMLScreenHandler {
 		this.content = (AnchorPane) loader.load();
 	}
 
+	@SuppressWarnings("exports")
 	public AnchorPane getContent() {
 		return this.content;
 	}
 
+	@SuppressWarnings("exports")
 	public FXMLLoader getLoader() {
 		return this.loader;
 	}
 
+	@SuppressWarnings("exports")
 	public void setImage(ImageView imv, String path){
 		File file = new File(path);
 		Image img = new Image(file.toURI().toString());
