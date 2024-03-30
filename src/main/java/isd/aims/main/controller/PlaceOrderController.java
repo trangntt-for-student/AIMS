@@ -65,6 +65,7 @@ public class PlaceOrderController extends BaseController{
      * @throws InterruptedException
      * @throws IOException
      */
+    @SuppressWarnings("rawtypes")
     public void processDeliveryInfo(HashMap info) throws InterruptedException, IOException{
         LOGGER.info("Process Delivery Info");
         LOGGER.info(info.toString());
