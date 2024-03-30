@@ -11,7 +11,7 @@ import java.util.List;
  * @author nguyenlm
  */
 public class BaseController {
-    
+
     /**
      * The method checks whether the Media in Cart, if it were in, we will return the CartMedia else return null
      * @param media
@@ -25,6 +25,7 @@ public class BaseController {
      * This method gets the list of items in cart
      * @return List[CartMedia]
      */
+    @SuppressWarnings("rawtypes")
     public List getListCartMedia(){
         return Cart.getCart().getListMedia();
     }

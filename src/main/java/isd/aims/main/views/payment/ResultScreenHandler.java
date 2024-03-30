@@ -11,9 +11,6 @@ import javafx.stage.Stage;
 
 public class ResultScreenHandler extends BaseScreenHandler {
 
-	private String result;
-	private String message;
-
 	public ResultScreenHandler(Stage stage, String screenPath, String result, String message) throws IOException {
 		super(stage, screenPath);
 		resultLabel.setText(result);
@@ -28,7 +25,7 @@ public class ResultScreenHandler extends BaseScreenHandler {
 
 	@FXML
 	private Button okButton;
-	
+
 	@FXML
 	private Label messageLabel;
 

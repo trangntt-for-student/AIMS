@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 
 public class PopupScreen extends BaseScreenHandler {
-    
+
 
     @FXML
     ImageView tickicon;
@@ -22,29 +22,29 @@ public class PopupScreen extends BaseScreenHandler {
     @FXML
     Label message;
 
-    
+
     public PopupScreen(Stage stage) throws IOException{
         super(stage, Configs.POPUP_PATH);
     }
 
-    private static PopupScreen popup(String message, String imagepath, Boolean undecorated) throws IOException{
+    private static PopupScreen popup(String message, String imagePath, Boolean undecorated) throws IOException{
         PopupScreen popup = new PopupScreen(new Stage());
         if (undecorated) popup.stage.initStyle(StageStyle.UNDECORATED);
         popup.message.setText(message);
-        popup.setImage(imagepath);
+        popup.setImage(imagePath);
         return popup;
     }
 
     public static void success(String message) throws IOException{
-        popup(message, Configs.IMAGE_PATH + "/" + "tickgreen.png", true).show(true);
+        popup(message, Configs.IMAGE_PATH_ICON + "/" + "tickgreen.png", true).show(true);
     }
 
     public static void error(String message) throws IOException{
-        popup(message, Configs.IMAGE_PATH + "/" + "tickerror.png", false).show(false);
+        popup(message, Configs.IMAGE_PATH_ICON + "/" + "tickerror.png", false).show(false);
     }
 
     public static PopupScreen loading(String message) throws IOException{
-        return popup(message, Configs.IMAGE_PATH + "/" + "loading.gif", true);
+        return popup(message, Configs.IMAGE_PATH_ICON + "/" + "loading.gif", true);
     }
 
     public void setImage(String path) {

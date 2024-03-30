@@ -8,15 +8,13 @@
 <?import javafx.scene.text.Font?>
 
 <StackPane prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/11.0.1"
-   xmlns:fx="http://javafx.com/fxml/1" fx:controller="views.screen.SplashScreenHandler">
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="isd.aims.main.views.SplashScreenHandler">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0">
          <children>
             <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="594.0"
-               layoutY="289.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="/assets/images/Logo.png" />
-               </image>
+                       layoutY="289.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@../fxml/images/Logo.png"/>
             </ImageView>
             <Label layoutX="632.0" layoutY="383.0" prefHeight="96.0" prefWidth="143.0" text="AIMS"
                textAlignment="CENTER" textFill="#5091e6">

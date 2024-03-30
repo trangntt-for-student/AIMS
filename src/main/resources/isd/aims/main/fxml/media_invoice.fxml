@@ -24,7 +24,7 @@
                      preserveRatio="true">
                      <image>
                         <Image
-                           url="/../../../../../../../../../../home/nguyenlm/Documents/Projects/Java/TA-TKXDPM/AIMS/assets/images/Logo.png" />
+                           url="@../fxml/images/Logo.png" />
                      </image>
                      <VBox.margin>
                         <Insets />

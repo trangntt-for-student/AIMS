@@ -13,7 +13,7 @@
       <ImageView fx:id="tickicon" fitHeight="99.0" fitWidth="103.0" layoutX="107.0" layoutY="23.0"
          pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="/assets/images/tickgreen.png" />
+            <Image url="/isd/aims/main/assetsms/main/assets/images/tickgreen.png" />
          </image>
       </ImageView>
       <Label fx:id="message" alignment="CENTER" contentDisplay="CENTER" layoutX="16.0"

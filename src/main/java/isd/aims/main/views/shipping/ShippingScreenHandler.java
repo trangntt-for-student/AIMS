@@ -66,7 +66,7 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 	void submitDeliveryInfo(MouseEvent event) throws IOException, InterruptedException, SQLException {
 
 		// add info to messages
-		HashMap messages = new HashMap<>();
+		HashMap<String, String> messages = new HashMap<>();
 		messages.put("name", name.getText());
 		messages.put("phone", phone.getText());
 		messages.put("address", address.getText());
@@ -78,12 +78,12 @@ public class ShippingScreenHandler extends BaseScreenHandler implements Initiali
 		} catch (InvalidDeliveryInfoException e) {
 			throw new InvalidDeliveryInfoException(e.getMessage());
 		}
-	
+
 		// calculate shipping fees
 		int shippingFees = getBController().calculateShippingFee(order);
 		order.setShippingFees(shippingFees);
 		order.setDeliveryInfo(messages);
-		
+
 		// create invoice screen
 		Invoice invoice = getBController().createInvoice(order);
 		BaseScreenHandler InvoiceScreenHandler = new InvoiceScreenHandler(this.stage, Configs.INVOICE_SCREEN_PATH, invoice);

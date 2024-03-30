@@ -7,10 +7,11 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Order {
-    
+
     private int shippingFees;
     private List lstOrderMedia;
     private HashMap<String, String> deliveryInfo;
+    private Integer id;
 
     public Order(){
         this.lstOrderMedia = new ArrayList<>();
@@ -50,6 +51,14 @@ public class Order {
 
     public void setDeliveryInfo(HashMap deliveryInfo) {
         this.deliveryInfo = deliveryInfo;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public int getAmount(){

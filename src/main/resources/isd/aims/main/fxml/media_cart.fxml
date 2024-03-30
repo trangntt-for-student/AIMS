@@ -24,7 +24,7 @@
                   <ImageView fx:id="image" fitHeight="103.0" fitWidth="95.0" pickOnBounds="true"
                      preserveRatio="true">
                      <image>
-                        <Image url="/assets/images/Logo.png" />
+                        <Image url="/isd/aims/main/assetsms/main/assets/images/Logo.png" />
                      </image>
                      <VBox.margin>
                         <Insets />

@@ -15,7 +15,7 @@
    <children>
       <ImageView fx:id="mediaImage" fitHeight="152.0" fitWidth="160.0" layoutX="14.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../media/nguyenlm/DriverD/Documents/UNIVERSITY/PERSONAL/PROJECT/Java/TA-TKXDPM/AIMS/assets/images/book2." />
+            <Image url="@../fxml/images/Logo.png" />
          </image>
       </ImageView>
       <Pane layoutX="200.0" layoutY="-1.0" prefHeight="210.0" prefWidth="110.0">

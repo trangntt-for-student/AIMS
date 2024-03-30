@@ -19,6 +19,7 @@ public class App extends Application {
     @FXML
     ImageView logo;
 
+    @SuppressWarnings("exports")
     @Override
     public void start(Stage primaryStage) {
         try {

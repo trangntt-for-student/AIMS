@@ -58,7 +58,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 		super(stage, screenPath);
 
 		// fix relative image path caused by fxml
-		File file = new File("assets/images/Logo.png");
+		File file = new File("isd/aims/main/fxml/images/Logo.png");
 		Image im = new Image(file.toURI().toString());
 		aimsImage.setImage(im);
 
@@ -77,7 +77,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 				exp.printStackTrace();
 				throw new PlaceOrderException(Arrays.toString(exp.getStackTrace()).replaceAll(", ", "\n"));
 			}
-			
+
 		});
 	}
 
@@ -111,7 +111,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 			}
 
 			placeOrderController.placeOrder();
-			
+
 			// display available media
 			displayCartWithMediaAvailability();
 
@@ -149,7 +149,7 @@ public class CartScreenHandler extends BaseScreenHandler {
 		labelVAT.setText(Utils.getCurrencyFormat(vat));
 		labelAmount.setText(Utils.getCurrencyFormat(amount));
 	}
-	
+
 	private void displayCartWithMediaAvailability(){
 		// clear all old cartMedia
 		vboxCart.getChildren().clear();

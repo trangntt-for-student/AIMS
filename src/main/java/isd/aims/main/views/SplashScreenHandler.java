@@ -15,7 +15,7 @@ public class SplashScreenHandler implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        File file = new File("assets/images/Logo.png");
+        File file = new File("src/main/resources/isd/aims/main/fxml/images/Logo.png");
         Image image = new Image(file.toURI().toString());
         logo.setImage(image);
     }
