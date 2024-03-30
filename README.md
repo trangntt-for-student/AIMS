@@ -9,39 +9,17 @@ Welcome to the AIMS project. Here is a guideline to help you get started.
 
 ## Folder Structure
 
-The workspace contains the following folders, where:
+Within the workspace, you'll find the following folders organized as follows:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
-- `assets`: the folder to maintain static resources
-- `test`: the folder for testing purpose
+- `src/main`: This directory holds the main source code files for the project.
+- `src/test`: Here lies the folder designated for testing purposes.
 
-<!-- ## Dependency Management
-### Working with Eclipse
-Import the root directory of this repository after cloning under `Eclipse` -> `Open Projects from File System...` or by using EGit.
+This project utilizes Maven as its dependency management tool, allowing for seamless management and integration of dependencies. Feel free to dive in and start exploring or modifying as needed.
 
-### SQLite
-Import `sqlite-jdbc-3.7.2.jar` in `lib` under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Classpath` -> `Add JARs...`.
-
-
-### JUnit
-Import `JUnit5` library under `Eclipse` -> `Project` -> `Properties` -> `Java Build Path` -> `Modulepath` -> `Add Library...` -> `JUnit` -> `Next`.
-
-### JavaFX
-**Note:** At first, please try to run the project once, and then follow these steps.
-1. Create a new `User Library` under `Eclipse` -> `Window` -> `Preferences` -> `Java` -> `Build Path` -> `User Libraries` -> `New`
-2. Name it anything you want, e.g., `JavaFX15`, and include the ***jars*** under either the `lib/linux/javafx-sdk-15` directory for Linux distro or the `lib/win/javafx-sdk-15` directory for Windows in the project.
-3. Include the library, e.g., `JavaFX15`, into the classpath. -->
-
-### Add VM arguments
-Click on `Run` -> `Run Configurations...`  -> `Java Application`, create a new launch configuration for your project and add these VM arguments:
-- For Linux distro:
-> `--module-path lib/linux/javafx-sdk-15 --add-modules javafx.controls,javafx.fxml`
-- For Windows:
-> `--module-path lib/win/javafx-sdk-15 --add-modules javafx.controls,javafx.fxml`
+*Caution*: Prior to running this program, ensure that SQLite3 is installed on your system. Please double-check to guarantee the smooth execution of the program.
 
 ## Author
+- janglee83 - AS Hedspi - K64
 - nguyenlm - Software Engeneering Student - k61
 - manhvd   - Software Engeneering Student - k61
 - hieudm   - ICT - k61
-- janglee83 - Hedspi - K64
