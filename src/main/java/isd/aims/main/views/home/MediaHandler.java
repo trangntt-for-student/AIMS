@@ -91,7 +91,7 @@ public class MediaHandler extends FXMLScreenHandler {
 
     private void setMediaInfo() throws SQLException {
         // set the cover image of media
-        File file = new File(Configs.RESOURCES_PATH + "/" + media.getImageURL());
+        File file = new File(Configs.IMAGE_PATH + media.getImageURL());
         Image image = new Image(file.toURI().toString());
         mediaImage.setFitHeight(160);
         mediaImage.setFitWidth(152);
@@ -104,7 +104,7 @@ public class MediaHandler extends FXMLScreenHandler {
             new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 100, 1)
         );
 
-        setImage(mediaImage, media.getImageURL());
+        // setImage(mediaImage, media.getImageURL());
     }
 
 }

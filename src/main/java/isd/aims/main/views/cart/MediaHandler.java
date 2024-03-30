@@ -64,7 +64,7 @@ public class MediaHandler extends FXMLScreenHandler {
 		this.cartScreen = cartScreen;
 		hboxMedia.setAlignment(Pos.CENTER);
 	}
-	
+
 	public void setCartMedia(CartMedia cartMedia) {
 		this.cartMedia = cartMedia;
 		setMediaInfo();
@@ -73,7 +73,7 @@ public class MediaHandler extends FXMLScreenHandler {
 	private void setMediaInfo() {
 		title.setText(cartMedia.getMedia().getTitle());
 		price.setText(Utils.getCurrencyFormat(cartMedia.getPrice()));
-		File file = new File(cartMedia.getMedia().getImageURL());
+		File file = new File(Configs.IMAGE_PATH + cartMedia.getMedia().getImageURL());
 		Image im = new Image(file.toURI().toString());
 		image.setImage(im);
 		image.setPreserveRatio(false);
@@ -124,7 +124,7 @@ public class MediaHandler extends FXMLScreenHandler {
 			} catch (SQLException e1) {
 				throw new MediaUpdateException(Arrays.toString(e1.getStackTrace()).replaceAll(", ", "\n"));
 			}
-			
+
 		});
 		spinnerFX.setAlignment(Pos.CENTER);
 		spinnerFX.getChildren().add(this.spinner);

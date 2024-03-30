@@ -25,10 +25,6 @@ public class PaymentTransaction {
 		this.createdAt = createdAt;
 	}
 
-	public PaymentTransaction() {
-
-	}
-
 	public String getErrorCode() {
 		return errorCode;
 	}
@@ -40,21 +36,23 @@ public class PaymentTransaction {
 	public void save(int orderId) throws SQLException {
 		this.orderID = orderId;
 		Statement stm = AIMSDB.getConnection().createStatement();
-		String query = "INSERT INTO PaymentTransaction ( orderID, createAt, content) " +
+		String query = "INSERT INTO Transaction ( orderID, createAt, content) " +
 				"VALUES ( ?, ?, ?)";
 		try (PreparedStatement preparedStatement = AIMSDB.getConnection().prepareStatement(query)) {
-			preparedStatement.setInt(1, orderID);
+			preparedStatement.setInt(1, 1);
 			preparedStatement.setDate(2, new java.sql.Date(createdAt.getTime()));
 			preparedStatement.setString(3,transactionContent );
 
 			preparedStatement.executeUpdate();
+		} catch (Exception exception) {
+			exception.printStackTrace();
 		}
 	}
 
 	public int checkPaymentByOrderId(int orderId) throws SQLException {
 		int count = 0;
 
-		String query = "SELECT COUNT(*) FROM PaymentTransaction WHERE orderID = ?";
+		String query = "SELECT COUNT(*) FROM Transaction WHERE orderID = ?";
 
 		try (PreparedStatement preparedStatement = AIMSDB.getConnection().prepareStatement(query)) {
 			preparedStatement.setInt(1, orderId);

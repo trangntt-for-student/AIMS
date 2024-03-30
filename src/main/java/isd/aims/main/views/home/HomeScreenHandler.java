@@ -123,11 +123,11 @@ public class HomeScreenHandler extends BaseScreenHandler implements Initializabl
 
     public void setImage() {
         // fix image path caused by fxml
-        File file1 = new File(Configs.IMAGE_PATH + "/" + "Logo.png");
+        File file1 = new File(Configs.IMAGE_PATH_ICON + "/" + "Logo.png");
         Image img1 = new Image(file1.toURI().toString());
         aimsImage.setImage(img1);
 
-        File file2 = new File(Configs.IMAGE_PATH + "/" + "cart.png");
+        File file2 = new File(Configs.IMAGE_PATH_ICON + "/" + "cart.png");
         Image img2 = new Image(file2.toURI().toString());
         cartImage.setImage(img2);
     }
