@@ -3,6 +3,7 @@ package isd.aims.main.subsystem;
 //import entity.payment.CreditCard;
 
 import isd.aims.main.entity.payment.PaymentTransaction;
+import isd.aims.main.entity.response.Response;
 import isd.aims.main.subsystem.vnPay.VnPaySubsystemController;
 
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class VnPaySubsystem implements VnPayInterface {
         }
     }
 
-    public PaymentTransaction makePaymentTransaction(Map<String, String> response) throws ParseException {
+    public PaymentTransaction makePaymentTransaction(Response response) throws ParseException {
             return ctrl.makePaymentTransaction(response);
     }
 }

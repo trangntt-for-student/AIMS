@@ -2,6 +2,7 @@ package isd.aims.main.subsystem.vnPay;
 
 import isd.aims.main.common.exception.*;
 import isd.aims.main.entity.payment.PaymentTransaction;
+import isd.aims.main.entity.response.Response;
 
 import java.io.IOException;
 import java.net.URLEncoder;
@@ -91,47 +92,20 @@ public class VnPaySubsystemController {
         return VnPayConfig.vnp_PayUrl + "?" + queryUrl;
     }
 
-    public PaymentTransaction makePaymentTransaction(Map<String, String> response) throws TransactionNotDoneException, TransactionFailedException, TransactionReverseException, UnrecognizedException, ParseException {
-        if (response == null) {
-            return null;
-        }
+    public PaymentTransaction makePaymentTransaction(Response response) throws ParseException {
+        if (response == null) return null;
 
         // Create Payment transaction
-        String errorCode = response.get("vnp_TransactionStatus");
-        String transactionId = response.get("vnp_TransactionNo");
-        String transactionContent = response.get("vnp_OrderInfo");
-        int amount = Integer.parseInt((String) response.get("vnp_Amount")) / 100;
-        String createdAt = response.get("vnp_PayDate");
+        String errorCode = response.getVnp_TransactionStatus();
+        String transactionId = response.getVnp_TransactionNo();
+        String transactionContent = response.getVnp_OrderInfo();
+        int amount = Integer.parseInt(response.getVnp_Amount()) / 100;
+        String createdAt = response.getVnp_PayDate();
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmss");
 
-            Date date = dateFormat.parse(createdAt);
-            PaymentTransaction trans = new
-                PaymentTransaction(errorCode, transactionId, transactionContent, amount, date);
-            switch (trans.getErrorCode()) {
-                case "00":
-                    break;
-                case "01":
-                    throw new TransactionNotDoneException();
-                case "02":
-                    throw new TransactionFailedException();
-                case "04":
-                    throw new TransactionReverseException();
-                case "05":
-                    throw new ProcessingException();
-                case "09":
-                    throw new RejectedTransactionException();
-                case "06":
-                    throw new SendToBankException();
-                case "07":
-                    throw new AnonymousTransactionException();
-                default:
-                    throw new UnrecognizedException();
-            }
+        Date date = dateFormat.parse(createdAt);
 
-            return trans;
-
-
-
+        return new PaymentTransaction(errorCode, transactionId, transactionContent, amount, date);
     }
 
 }

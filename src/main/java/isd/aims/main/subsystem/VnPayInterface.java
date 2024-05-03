@@ -3,6 +3,7 @@ package isd.aims.main.subsystem;
 import isd.aims.main.common.exception.PaymentException;
 import isd.aims.main.common.exception.UnrecognizedException;
 import isd.aims.main.entity.payment.PaymentTransaction;
+import isd.aims.main.entity.response.Response;
 
 import java.text.ParseException;
 import java.util.Map;
@@ -23,5 +24,5 @@ public interface VnPayInterface {
 
 
     public PaymentTransaction
-    makePaymentTransaction(Map<String, String> response) throws ParseException;
+    makePaymentTransaction(Response response) throws ParseException;
 }
