@@ -3,6 +3,7 @@ package isd.aims.main.controller;
 import isd.aims.main.common.exception.PaymentException;
 import isd.aims.main.common.exception.UnrecognizedException;
 import isd.aims.main.entity.cart.Cart;
+import isd.aims.main.entity.response.Response;
 import isd.aims.main.subsystem.VnPayInterface;
 import isd.aims.main.subsystem.VnPaySubsystem;
 
@@ -26,7 +27,7 @@ public class PaymentController extends BaseController {
 		vnPayService = new VnPaySubsystem();
 	}
 
-	public Map<String, String> makePayment(Map<String, String> response, int orderId) {
+	public Map<String, String> makePayment(Response response, int orderId) {
 		Map<String, String> result = new Hashtable<String, String>();
 
 		try {

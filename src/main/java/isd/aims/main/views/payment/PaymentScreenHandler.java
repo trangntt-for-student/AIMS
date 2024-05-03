@@ -8,6 +8,7 @@ import java.util.Map;
 
 import isd.aims.main.controller.PaymentController;
 import isd.aims.main.entity.invoice.Invoice;
+import isd.aims.main.entity.response.Response;
 import isd.aims.main.subsystem.vnPay.VnPayConfig;
 import isd.aims.main.utils.Configs;
 import isd.aims.main.views.BaseScreenHandler;
@@ -55,31 +56,15 @@ public class PaymentScreenHandler extends BaseScreenHandler {
 		vBox.getChildren().add(paymentView);
 	}
 
-	// Hàm chuyển đổi query string thành Map
-    private static Map<String, String> parseQueryString(String query) {
-        Map<String, String> params = new HashMap<>();
-        if (query != null && !query.isEmpty()) {
-            String[] pairs = query.split("&");
-            for (String pair : pairs) {
-                String[] keyValue = pair.split("=");
-                if (keyValue.length == 2) {
-                    params.put(keyValue[0], keyValue[1]);
-                }
-            }
-        }
-        return params;
-    }
 
     private void handleUrlChanged(String newValue) {
         if (newValue.contains(VnPayConfig.vnp_ReturnUrl)) {
             try {
                 URI uri = new URI(newValue);
                 String query = uri.getQuery();
+                Response response = new Response(query);
 
-                // Chuyển đổi query thành Map
-                Map<String, String> params = parseQueryString(query);
-
-                payOrder(params);
+                payOrder(response);
 
             } catch (URISyntaxException e) {
                 e.printStackTrace();
@@ -89,46 +74,17 @@ public class PaymentScreenHandler extends BaseScreenHandler {
         }
     }
 
-    void payOrder(Map<String, String> res) throws IOException {
+    void payOrder(Response response) throws IOException {
 
         var ctrl = (PaymentController) super.getBController();
-        Map<String, String> response = ctrl.makePayment(res, 1);
+        Map<String, String> res = ctrl.makePayment(response, 1);
 
         BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH,
-                response.get("RESULT"), response.get("MESSAGE"));
+                res.get("RESULT"), res.get("MESSAGE"));
         ctrl.emptyCart();
         resultScreen.setPreviousScreen(this);
         resultScreen.setHomeScreenHandler(homeScreenHandler);
         resultScreen.setScreenTitle("Result Screen");
         resultScreen.show();
     }
-
-	// @FXML
-	// private Label pageTitle;
-
-	// @FXML
-	// private TextField cardNumber;
-
-	// @FXML
-	// private TextField holderName;
-
-	// @FXML
-	// private TextField expirationDate;
-
-	// @FXML
-	// private TextField securityCode;
-
-	// void confirmToPayOrder() throws IOException{
-	// 	String contents = "pay order";
-	// 	PaymentController ctrl = (PaymentController) getBController();
-	// 	Map<String, String> response = ctrl.payOrder(invoice.getAmount(), contents, cardNumber.getText(), holderName.getText(),
-	// 			expirationDate.getText(), securityCode.getText());
-
-	// 	BaseScreenHandler resultScreen = new ResultScreenHandler(this.stage, Configs.RESULT_SCREEN_PATH, response.get("RESULT"), response.get("MESSAGE") );
-	// 	resultScreen.setPreviousScreen(this);
-	// 	resultScreen.setHomeScreenHandler(homeScreenHandler);
-	// 	resultScreen.setScreenTitle("Result Screen");
-	// 	resultScreen.show();
-	// }
-
 }
